@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Handwriting OCR</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <h1>Upload a Handwritten Document</h1>
+    <form method="POST" enctype="multipart/form-data">
+        <input type="file" name="file" accept="image/*,.pdf" required>
+        <button type="submit">Scan</button>
+    </form>
+
+    {% if error_message %}
+    <div class="error">{{ error_message }}</div>
+    {% endif %}
+
+    {% if extracted_text %}
+    <h2>Extracted Text:</h2>
+    <pre>{{ extracted_text }}</pre>
+    {% endif %}
+</body>
+</html>
